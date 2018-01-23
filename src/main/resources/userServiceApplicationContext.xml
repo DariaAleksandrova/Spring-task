@@ -16,5 +16,5 @@
     <bean id="userDao" class="com.epam.spring.core.dao.UserDao">
     </bean>
 
-  	
+
 </beans>

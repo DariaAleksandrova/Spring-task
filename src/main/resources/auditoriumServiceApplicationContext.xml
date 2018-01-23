@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans	xmlns="http://www.springframework.org/schema/beans"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:aop="http://www.springframework.org/schema/aop"
-		xmlns:context="http://www.springframework.org/schema/context"
-		xsi:schemaLocation="
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="
 				http://www.springframework.org/schema/beans
 				http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-				http://www.springframework.org/schema/context 
-                http://www.springframework.org/schema/context/spring-context.xsd">
+                http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 	<bean id="auditoriumServiceImpl" class="com.epam.spring.core.service.impl.AuditoriumServiceImpl">
-		<property name="auditoriums">	
-			<map>
-				<entry key="${auditorium.first.name}" value-ref="auditorium_first_stage" />
-				<entry key="${auditorium.second.name}" value-ref="auditorium_second_stage" />
-			</map>
+		<property name="auditoriums">
+			<util:set set-class="java.util.HashSet">
+				<ref bean="auditorium_first_stage"/>
+				<ref bean="auditorium_second_stage"/>
+			</util:set>
 		</property>
 	</bean>
 	

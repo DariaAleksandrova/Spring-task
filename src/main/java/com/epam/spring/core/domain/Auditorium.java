@@ -1,8 +1,6 @@
 package com.epam.spring.core.domain;
 
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
@@ -10,14 +8,30 @@ public class Auditorium {
 
     private String name;
     private long numberOfSeats;
+    private NavigableSet<Ticket> tickets = new TreeSet<>();
     private Set<Long> vipSeats = Collections.emptySet();
 
     public Auditorium() {
     }
 
+    public void addTicket(Ticket ticket) {
+        tickets.add(ticket);
+    }
 
-    public long countVipSeats(Set<Seat> seats) {
+    public void remove(Ticket ticket) {
+        tickets.remove(ticket);
+    }
+
+    public NavigableSet<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public long countVipSeats(Collection<Long> seats) {
         return seats.stream().filter(seat -> vipSeats.contains(seat)).count();
+    }
+
+    public boolean isSeatVip(Long id) {
+        return vipSeats.contains(id);
     }
 
     public String getName() {
@@ -35,9 +49,9 @@ public class Auditorium {
     public void setNumberOfSeats(long numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
-    
+
     public Set<Long> getAllSeats() {
-        return LongStream.range(1, numberOfSeats+1).boxed().collect(Collectors.toSet());
+        return LongStream.range(1, numberOfSeats + 1).boxed().collect(Collectors.toSet());
     }
 
     public Set<Long> getVipSeats() {
@@ -74,5 +88,6 @@ public class Auditorium {
         }
         return true;
     }
+
 
 }

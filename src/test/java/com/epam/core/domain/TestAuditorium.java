@@ -1,4 +1,4 @@
-package com.epam.spring.hometask.domain;
+package com.epam.core.domain;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,9 +9,11 @@ import java.util.stream.Stream;
 import com.epam.spring.core.domain.Auditorium;
 import org.junit.Test;
 
-
+/**
+ * @author Yuriy_Tkach
+ */
 public class TestAuditorium {
-	
+
 	@Test
 	public void testCountVips() {
 		Auditorium a = new Auditorium();
@@ -20,11 +22,13 @@ public class TestAuditorium {
 		assertEquals(1, a.countVipSeats(Arrays.asList(10L, 2L, 30L)));
 		assertEquals(2, a.countVipSeats(Arrays.asList(10L, 2L, 3L, 4L, 5L, 6L)));
 	}
-	
+
+	@Test
 	public void testGetAllSeats() {
-	    Auditorium a = new Auditorium();
-	    a.setNumberOfSeats(10);
-	    assertEquals(10, a.getAllSeats().size());
+		Auditorium a = new Auditorium();
+		a.setNumberOfSeats(10);
+		assertEquals(10, a.getAllSeats().size());
 	}
 
 }
+

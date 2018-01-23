@@ -3,7 +3,6 @@ package com.epam.spring.core.service.impl;
 import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.domain.User;
 import com.epam.spring.core.dao.TicketDao;
-import com.epam.spring.core.domain.Seat;
 import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.service.BookingService;
 import com.epam.spring.core.service.DiscountService;
@@ -18,7 +17,7 @@ public class BookingServiceImpl implements BookingService {
 
 
     @Override
-    public double getTicketsPrice(Event event, LocalDateTime dateTime, User user, Set<Seat> seats) {
+    public double getTicketsPrice(Event event, LocalDateTime dateTime, User user, Set<Long> seats) {
         int countOfTickets = seats.size();
         double discount = discountService.getDiscount(user, event, dateTime, countOfTickets);
         long vipSeatsCount = event.getAuditoriums().get(dateTime).countVipSeats(seats);
