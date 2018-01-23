@@ -1,4 +1,4 @@
-package com.epam.core.service.impl;
+package com.epam.spring.core.service.impl;
 
 import com.epam.spring.core.service.AuditoriumService;
 import org.junit.Test;

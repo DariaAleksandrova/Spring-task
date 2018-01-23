@@ -13,8 +13,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
 public class EventDaoImpl implements EventDao {
+
 
     private Map<Long, Event> events = new HashMap<>();
 
@@ -30,6 +30,7 @@ public class EventDaoImpl implements EventDao {
     }
 
     @Override
+
     public void remove(@Nonnull Event event) {
         events.remove(event.getId());
     }
@@ -41,14 +42,15 @@ public class EventDaoImpl implements EventDao {
 
     @Nonnull
     @Override
-    public Set<Event> getForDateRange(@Nonnull LocalDate from, @Nonnull LocalDate to) {
-        return events.values().stream().filter(event -> event.airsOnDates(from, to)).collect(Collectors.toSet());
+    public Set<Event> getNextEvents(@Nonnull LocalDate to) {
+        return events.values().stream().filter(event -> event.airsOnDates(LocalDate.now(), to)).collect(Collectors.toSet());
     }
+
 
     @Nonnull
     @Override
-    public Set<Event> getNextEvents(@Nonnull LocalDateTime to) {
-        return events.values().stream().filter(event -> event.airsOnDates(LocalDateTime.now(), to)).collect(Collectors.toSet());
+    public Set<Event> getForDateRange(@Nonnull LocalDate from, @Nonnull LocalDate to) {
+        return events.values().stream().filter(event -> event.airsOnDates(from, to)).collect(Collectors.toSet());
     }
 
     @Nonnull

@@ -1,4 +1,4 @@
-package com.epam.core.domain;
+package com.epam.spring.core.domain;
 
 import static org.junit.Assert.assertEquals;
 

@@ -21,12 +21,13 @@ public interface EventDao {
     Event getById(@Nonnull Long id);
 
     @Nonnull
+    Set<Event> getNextEvents(@Nonnull LocalDate to);
+
+    @Nonnull
     Collection<Event> getAll();
 
     @Nonnull
     Set<Event> getForDateRange(@Nonnull LocalDate from,
                                @Nonnull LocalDate to);
 
-    @Nonnull
-    Set<Event> getNextEvents(@Nonnull LocalDateTime to);
 }

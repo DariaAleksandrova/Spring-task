@@ -22,7 +22,7 @@
     </bean>
 
     <util:set id="auditoriums" value-type="com.epam.spring.core.domain.Auditorium">
-        <bean class="com.epam.spring.core..domain.Auditorium">
+        <bean class="com.epam.spring.core.domain.Auditorium">
             <property name="name" value="${auditorium1.name}"></property>
             <property name="numberOfSeats" value="${auditorium1.numberOfSeats}"></property>
             <property name="vipSeats" value="#{'${auditorium1.vipSeats}'.split(',')}"></property>
