@@ -10,13 +10,32 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <spring.version>3.2.16.RELEASE</spring.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
         <findbugs.version>3.0.1</findbugs.version>
         <junit.version>4.12</junit.version>
+
     </properties>
 
     <build>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*local.properties</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -72,8 +91,8 @@
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>3.0.3</version>
                 <configuration>
-                    <!-- Enables analysis which takes more memory but finds 
-                        more bugs. If you run out of memory, changes the value of the effort element 
+                    <!-- Enables analysis which takes more memory but finds
+                        more bugs. If you run out of memory, changes the value of the effort element
                         to 'Low'. -->
                     <effort>Max</effort>
                     <!-- Build doesn't fail if problems are found -->
@@ -82,7 +101,7 @@
                     <threshold>Low</threshold>
                     <!-- Produces XML report -->
                     <xmlOutput>true</xmlOutput>
-                    <!-- Configures the directory in which the XML report 
+                    <!-- Configures the directory in which the XML report
                         is created -->
                     <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
                 </configuration>
@@ -96,6 +115,12 @@
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>

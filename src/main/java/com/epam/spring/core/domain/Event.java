@@ -199,4 +199,6 @@ public class Event extends DomainObject {
         return true;
     }
 
+    public boolean airsOnDates(LocalDateTime now, LocalDateTime to) {
+    }
 }

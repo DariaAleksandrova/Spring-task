@@ -1,6 +1,6 @@
 package com.epam.spring.core.domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.NavigableSet;
 import java.util.Objects;
 import java.util.TreeSet;
@@ -12,7 +12,7 @@ public class User extends DomainObject {
     private String lastName;
     private String email;
     private NavigableSet<Ticket> tickets = new TreeSet<>();
-    private LocalDate birthday;
+    private LocalDateTime birthday;
     private boolean isRegistered;
 
     public String getFirstName() {
@@ -47,11 +47,11 @@ public class User extends DomainObject {
         this.tickets = tickets;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
     }
 
-    public LocalDate getBirthday() {
+    public LocalDateTime getBirthday() {
         return birthday;
     }
 
@@ -61,6 +61,10 @@ public class User extends DomainObject {
 
     public void setRegistered(boolean isRegistered) {
         this.isRegistered = isRegistered;
+    }
+
+    public void addTicket(Ticket ticket) {
+        tickets.add(ticket);
     }
 
     @Override

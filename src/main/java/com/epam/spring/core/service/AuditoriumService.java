@@ -1,29 +1,21 @@
 package com.epam.spring.core.service;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.Event;
 
 
 public interface AuditoriumService {
 
-    /**
-     * Getting all auditoriums from the system
-     * 
-     * @return set of all auditoriums
-     */
-    public @Nonnull Set<Auditorium> getAll();
+    @Nonnull Set<Auditorium> getAll();
 
-    /**
-     * Finding auditorium by name
-     * 
-     * @param name
-     *            Name of the auditorium
-     * @return found auditorium or <code>null</code>
-     */
-    public @Nullable Auditorium getByName(@Nonnull String name);
+    @Nullable Auditorium getByName(@Nonnull String name);
 
+    @Nullable
+    Auditorium getAuditoriumByEventAndDate(@Nonnull Event event, @Nonnull LocalDateTime dateTime);
 }

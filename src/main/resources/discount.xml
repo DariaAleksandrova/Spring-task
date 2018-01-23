@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+ 		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+    <bean name="discountService" class="com.epam.spring.core.service.discount.Discount">
+    </bean>
+        <bean class="com.epam.spring.core.service.discount.DiscountStrategy" factory-method="valueOf">
+            <property name="baseDiscount" value="${discount.birthday}"/>
+        </bean>
+        <bean class="ua.epam.spring.hometask.enumeration.DiscountStrategy" factory-method="valueOf">
+            <constructor-arg>
+                <value>NUMBER_OF_TICKETS</value>
+            </constructor-arg>
+            <property name="baseDiscount" value="${discount.countOfTickets}"/>
+        </bean>
+
+</beans>

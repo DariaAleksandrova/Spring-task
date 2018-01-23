@@ -1,9 +1,11 @@
 package com.epam.spring.core.service.impl;
 
+import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.domain.User;
 import com.epam.spring.core.dao.UserDao;
 import com.epam.spring.core.service.UserService;
 
+import javax.annotation.Nonnull;
 import java.util.Collection;
 
 public class UserServiceImpl implements UserService {

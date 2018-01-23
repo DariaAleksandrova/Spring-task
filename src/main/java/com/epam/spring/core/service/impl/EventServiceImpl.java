@@ -4,7 +4,10 @@ import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.dao.EventServiceDao;
 import com.epam.spring.core.service.EventService;
 
+import javax.annotation.Nonnull;
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Set;
 
 public class EventServiceImpl implements EventService {
 

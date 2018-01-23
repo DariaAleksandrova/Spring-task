@@ -12,13 +12,16 @@ public class Ticket extends DomainObject implements Comparable<Ticket> {
 
     private LocalDateTime dateTime;
 
-    private long seat;
+    private Long seat;
 
-    public Ticket(Event event, LocalDateTime dateTime, long seat) {
+    public Ticket(User user, Event event, LocalDateTime dateTime, Long seat) {
         this.user = user;
         this.event = event;
         this.dateTime = dateTime;
         this.seat = seat;
+    }
+
+    public Ticket() {
     }
 
     public User getUser() {
@@ -33,45 +36,24 @@ public class Ticket extends DomainObject implements Comparable<Ticket> {
         return dateTime;
     }
 
-    public long getSeat() {
+    public Long getSeat() {
         return seat;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(dateTime, event, seat);
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        Ticket other = (Ticket) obj;
-        if (dateTime == null) {
-            if (other.dateTime != null) {
-                return false;
-            }
-        } else if (!dateTime.equals(other.dateTime)) {
-            return false;
-        }
-        if (event == null) {
-            if (other.event != null) {
-                return false;
-            }
-        } else if (!event.equals(other.event)) {
-            return false;
-        }
-        if (seat != other.seat) {
-            return false;
-        }
-        return true;
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public void setSeat(Long seat) {
+        this.seat = seat;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     @Override
@@ -84,10 +66,8 @@ public class Ticket extends DomainObject implements Comparable<Ticket> {
         if (result == 0) {
             result = event.getName().compareTo(other.getEvent().getName());
         }
-        if (result == 0) {
-            result = Long.compare(seat, other.getSeat());
-        }
         return result;
     }
 
 }
+
