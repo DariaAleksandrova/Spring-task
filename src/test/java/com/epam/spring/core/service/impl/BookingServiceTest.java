@@ -26,7 +26,7 @@ import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:context-context.xml")
+@ContextConfiguration(locations = "classpath:context.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BookingServiceTest {
 

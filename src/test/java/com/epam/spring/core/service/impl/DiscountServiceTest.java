@@ -17,7 +17,7 @@ import static junit.framework.TestCase.assertEquals;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:context-context.xml")
+@ContextConfiguration(locations = "classpath:context.xml")
 public class DiscountServiceTest {
     @Autowired
     private DiscountService discountService;

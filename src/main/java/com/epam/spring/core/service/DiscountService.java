@@ -11,6 +11,7 @@ import com.epam.spring.core.domain.User;
 
 public interface DiscountService {
 
-    double getDiscount(@Nullable User user, @Nonnull Event event, @Nonnull LocalDateTime airDateTime, long numberOfTickets);
+    double getDiscount(@Nullable User user, @Nonnull Event event,
+                       @Nonnull LocalDateTime airDateTime, long numberOfTickets);
 
 }

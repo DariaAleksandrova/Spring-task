@@ -7,6 +7,7 @@ import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.service.BookingService;
 import com.epam.spring.core.service.DiscountService;
 
+import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -17,7 +18,8 @@ public class BookingServiceImpl implements BookingService {
 
 
     @Override
-    public double getTicketsPrice(Event event, LocalDateTime dateTime, User user, Set<Long> seats) {
+    public double getTicketsPrice(@Nonnull Event event, @Nonnull LocalDateTime dateTime,
+                                  User user, @Nonnull Set<Long> seats) {
         int countOfTickets = seats.size();
         double discount = discountService.getDiscount(user, event, dateTime, countOfTickets);
         long vipSeatsCount = event.getAuditoriums().get(dateTime).countVipSeats(seats);
@@ -28,18 +30,19 @@ public class BookingServiceImpl implements BookingService {
 
 
     @Override
-    public void bookTickets(Set<Ticket> tickets) {
+    public void bookTickets(@Nonnull Set<Ticket> tickets) {
         ticketDao.saveAll(tickets);
     }
 
 
+    @Nonnull
     @Override
-    public Set<Ticket> getPurchasedTicketsForEvent(Event event, LocalDateTime dateTime) {
+    public Set<Ticket> getPurchasedTicketsForEvent(@Nonnull Event event, @Nonnull LocalDateTime dateTime) {
         return ticketDao.getTicketsForDateAndEvent(event, dateTime);
     }
 
-    public void setTicketDAO(TicketDao ticketDAO) {
-        this.ticketDao = ticketDAO;
+    public void setTicketDao(TicketDao ticketDao) {
+        this.ticketDao = ticketDao;
     }
 
     public void setDiscountService(DiscountService discountService) {

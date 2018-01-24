@@ -13,13 +13,14 @@ import com.epam.spring.core.domain.Ticket;
 
 public interface BookingService {
 
-        double getTicketsPrice(@Nonnull Event event, @Nonnull LocalDateTime dateTime, @Nullable User user,
-                               @Nonnull Set<Long> seats);
+        double getTicketsPrice(@Nonnull Event event, @Nonnull LocalDateTime dateTime,
+                               @Nullable User user, @Nonnull Set<Long> seats);
 
 
         void bookTickets(@Nonnull Set<Ticket> tickets);
 
 
-        @Nonnull Set<Ticket> getPurchasedTicketsForEvent(@Nonnull Event event, @Nonnull LocalDateTime dateTime);
+        @Nonnull Set<Ticket> getPurchasedTicketsForEvent(@Nonnull Event event,
+                                                         @Nonnull LocalDateTime dateTime);
 
 }

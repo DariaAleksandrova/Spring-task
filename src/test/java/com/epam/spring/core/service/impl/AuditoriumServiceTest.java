@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static junit.framework.TestCase.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:context-context.xml")
+@ContextConfiguration(locations = "classpath:context.xml")
 public class AuditoriumServiceTest {
 
     @Autowired

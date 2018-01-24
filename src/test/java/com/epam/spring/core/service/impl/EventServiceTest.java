@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:context-context.xml")
+@ContextConfiguration(locations = "classpath:context.xml")
 public class EventServiceTest {
 
     @Autowired

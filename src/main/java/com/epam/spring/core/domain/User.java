@@ -99,13 +99,8 @@ public class User extends DomainObject {
             return false;
         }
         if (lastName == null) {
-            if (other.lastName != null) {
-                return false;
-            }
-        } else if (!lastName.equals(other.lastName)) {
-            return false;
-        }
-        return true;
+            return other.lastName == null;
+        } else return lastName.equals(other.lastName);
     }
 
 }

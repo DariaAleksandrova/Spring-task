@@ -13,26 +13,27 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public User getUserByEmail(String email) {
+    public User getUserByEmail(@Nonnull String email) {
         return userDao.getUserByEmail(email);
     }
 
     @Override
-    public User save(User object) {
+    public User save(@Nonnull User object) {
         return userDao.save(object);
     }
 
     @Override
-    public void remove(User object) {
+    public void remove(@Nonnull User object) {
         userDao.remove(object);
 
     }
 
     @Override
-    public User getById( Long id) {
+    public User getById(@Nonnull Long id) {
         return userDao.getById(id);
     }
 
+    @Nonnull
     @Override
     public Collection<User> getAll() {
         return userDao.getAll();
