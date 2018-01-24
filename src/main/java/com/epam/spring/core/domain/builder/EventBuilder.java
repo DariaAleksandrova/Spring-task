@@ -22,8 +22,7 @@ public class EventBuilder {
     }
 
     public EventBuilder buildAirDates(LocalDateTime... localDateTimes) {
-        NavigableSet<LocalDateTime> dateTree = new TreeSet<>();
-        Arrays.asList(localDateTimes).stream().forEach(localDate -> dateTree.add(localDate));
+        NavigableSet<LocalDateTime> dateTree = new TreeSet<>(Arrays.asList(localDateTimes));
         event.setAirDates(dateTree);
         return this;
     }
