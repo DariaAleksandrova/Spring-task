@@ -8,18 +8,18 @@
  		http://www.springframework.org/schema/util
  		http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
-    <bean name="discountService" class="com.epam.core.service.impl.DiscountServiceImpl">
+    <bean name="discountService" class="com.epam.spring.core.service.impl.DiscountServiceImpl">
         <property name="strategies" ref="enums"/>
     </bean>
 
     <util:list id="enums">
-        <bean class="com.epam.core.service.discount.DiscountStrategy" factory-method="valueOf">
+        <bean class="com.epam.spring.core.service.discount.DiscountStrategy" factory-method="valueOf">
             <constructor-arg>
                 <value>BIRTHDAY</value>
             </constructor-arg>
             <property name="baseDiscount" value="${discount.birthday}"/>
         </bean>
-        <bean class="com.epam.core.service.discount.DiscountStrategy" factory-method="valueOf">
+        <bean class="com.epam.spring.core.service.discount.DiscountStrategy" factory-method="valueOf">
             <constructor-arg>
                 <value>NUMBER_OF_TICKETS</value>
             </constructor-arg>

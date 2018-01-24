@@ -6,9 +6,6 @@ import com.epam.spring.core.domain.User;
 
 import java.time.LocalDateTime;
 
-/**
- * Created by Дмитрий on 18.04.2016.
- */
 public class TicketBuilder {
     Ticket ticket = new Ticket();
 

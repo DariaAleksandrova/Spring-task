@@ -38,7 +38,9 @@ public class UserDaoImpl implements UserDao {
     @Nullable
     @Override
     public User getUserByEmail(@Nonnull String email) {
-        return users.values().stream().filter(user -> user.getEmail().equals(email)).findAny().orElse(null);
+        return users.values().stream()
+                .filter(user -> user.getEmail().equals(email))
+                .findAny().orElse(null);
     }
 
     public void setUsers(Map<Long, User> users) {

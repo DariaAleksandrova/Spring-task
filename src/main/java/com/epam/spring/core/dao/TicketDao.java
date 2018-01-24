@@ -11,5 +11,6 @@ public interface TicketDao {
 
     void saveAll(Set<Ticket> tickets);
 
-    Set<Ticket> getTicketsForDateAndEvent(@Nonnull Event event, @Nonnull LocalDateTime dateTime);
+    Set<Ticket> getTicketsForDateAndEvent(@Nonnull Event event,
+                                          @Nonnull LocalDateTime dateTime);
 }

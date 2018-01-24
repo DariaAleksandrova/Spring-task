@@ -36,12 +36,12 @@ public class DiscountServiceTest {
 
     @Test
     public void getDiscountBirthday(){
-        assertEquals(5,discountService.getDiscount(user,event,dateOfEvent,numberOfTickets));
+        assertEquals(5.0,discountService.getDiscount(user,event,dateOfEvent,numberOfTickets));
     }
 
     @Test
     public void getDiscountNumber(){
         numberOfTickets=15;
-        assertEquals(33,discountService.getDiscount(user,event,dateOfEvent,numberOfTickets));
+        assertEquals(33.0,discountService.getDiscount(user,event,dateOfEvent,numberOfTickets));
     }
 }

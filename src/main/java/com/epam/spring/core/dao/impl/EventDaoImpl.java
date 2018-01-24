@@ -21,7 +21,9 @@ public class EventDaoImpl implements EventDao {
     @Nullable
     @Override
     public Event getByName(@Nonnull String name) {
-        return events.values().stream().filter(event -> event.getName().equals(name)).findAny().orElse(null);
+        return events.values().stream()
+                .filter(event -> event.getName().equals(name))
+                .findAny().orElse(null);
     }
 
     @Override
@@ -43,14 +45,18 @@ public class EventDaoImpl implements EventDao {
     @Nonnull
     @Override
     public Set<Event> getNextEvents(@Nonnull LocalDate to) {
-        return events.values().stream().filter(event -> event.airsOnDates(LocalDate.now(), to)).collect(Collectors.toSet());
+        return events.values().stream()
+                .filter(event -> event.airsOnDates(LocalDate.now(), to))
+                .collect(Collectors.toSet());
     }
 
 
     @Nonnull
     @Override
     public Set<Event> getForDateRange(@Nonnull LocalDate from, @Nonnull LocalDate to) {
-        return events.values().stream().filter(event -> event.airsOnDates(from, to)).collect(Collectors.toSet());
+        return events.values().stream()
+                .filter(event -> event.airsOnDates(from, to))
+                .collect(Collectors.toSet());
     }
 
     @Nonnull

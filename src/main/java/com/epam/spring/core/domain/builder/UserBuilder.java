@@ -18,8 +18,7 @@ public class UserBuilder {
     }
 
     public UserBuilder buildTickets(Ticket... tickets) {
-        NavigableSet<Ticket> ticketsTree = new TreeSet<>();
-        Arrays.asList(tickets).stream().forEach(ticket -> ticketsTree.add(ticket));
+        NavigableSet<Ticket> ticketsTree = new TreeSet<>(Arrays.asList(tickets));
         user.setTickets(ticketsTree);
         return this;
     }

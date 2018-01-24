@@ -8,34 +8,33 @@
  		http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
 
-    <bean
-            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
             <value>auditorium.properties</value>
         </property>
     </bean>
+
     <bean class="com.epam.spring.core.service.impl.AuditoriumServiceImpl">
         <property name="auditoriums">
-            <ref bean="auditoriums"></ref>
+            <ref bean="auditoriums"/>
         </property>
     </bean>
 
     <util:set id="auditoriums" value-type="com.epam.spring.core.domain.Auditorium">
         <bean class="com.epam.spring.core.domain.Auditorium">
-            <property name="name" value="${auditorium1.name}"></property>
-            <property name="numberOfSeats" value="${auditorium1.numberOfSeats}"></property>
-            <property name="vipSeats" value="#{'${auditorium1.vipSeats}'.split(',')}"></property>
+            <property name="name" value="${auditorium1.name}"/>
+            <property name="numberOfSeats" value="${auditorium1.numberOfSeats}"/>
+            <property name="vipSeats" value="#{'${auditorium1.vipSeats}'.split(',')}"/>
         </bean>
         <bean class="com.epam.spring.core.domain.Auditorium">
-            <property name="name" value="${auditorium2.name}"></property>
-            <property name="numberOfSeats" value="${auditorium2.numberOfSeats}"></property>
-            <property name="vipSeats" value="#{'${auditorium2.vipSeats}'.split(',')}"></property>
+            <property name="name" value="${auditorium2.name}"/>
+            <property name="numberOfSeats" value="${auditorium2.numberOfSeats}"/>
+            <property name="vipSeats" value="#{'${auditorium2.vipSeats}'.split(',')}"/>
         </bean>
         <bean class="com.epam.spring.core.domain.Auditorium">
-            <property name="name" value="${auditorium3.name}"></property>
-            <property name="numberOfSeats" value="${auditorium3.numberOfSeats}"></property>
-            <property name="vipSeats" value="#{'${auditorium3.vipSeats}'.split(',')}"></property>
+            <property name="name" value="${auditorium3.name}"/>
+            <property name="numberOfSeats" value="${auditorium3.numberOfSeats}"/>
+            <property name="vipSeats" value="#{'${auditorium3.vipSeats}'.split(',')}"/>
         </bean>
     </util:set>
 
@@ -48,38 +47,38 @@
 
     <bean name="eventDao" class="com.epam.spring.core.dao.impl.EventDaoImpl">
         <property name="events">
-            <ref bean="eventMap"></ref>
+            <ref bean="eventMap"/>
         </property>
     </bean>
     <bean name="ticketDao" class="com.epam.spring.core.dao.impl.TicketDaoImpl">
         <property name="tickets">
-            <ref bean="ticketMap"></ref>
+            <ref bean="ticketMap"/>
         </property>
     </bean>
     <bean name="userDao" class="com.epam.spring.core.dao.impl.UserDaoImpl">
         <property name="users">
-            <ref bean="userMap"></ref>
+            <ref bean="userMap"/>
         </property>
     </bean>
 
     <bean class="com.epam.spring.core.service.impl.EventServiceImpl">
         <property name="eventDao">
-            <ref bean="eventDao"></ref>
+            <ref bean="eventDao"/>
         </property>
     </bean>
     <bean class="com.epam.spring.core.service.impl.BookingServiceImpl">
         <property name="ticketDao">
-            <ref bean="ticketDao"></ref>
+            <ref bean="ticketDao"/>
         </property>
         <property name="discountService">
-            <ref bean="discountService"></ref>
+            <ref bean="discountService"/>
         </property>
     </bean>
     <bean class="com.epam.spring.core.service.impl.UserServiceImpl">
         <property name="userDao">
-            <ref bean="userDao"></ref>
+            <ref bean="userDao"/>
         </property>
     </bean>
 
-    <import resource="discount.xml"></import>
+    <import resource="discount.xml"/>
 </beans>

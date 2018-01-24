@@ -1,6 +1,7 @@
 package com.epam.spring.core.dao.impl;
 
 import com.epam.spring.core.dao.TicketDao;
+import com.epam.spring.core.domain.DomainObject;
 import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.domain.Ticket;
 
@@ -16,7 +17,9 @@ public class TicketDaoImpl implements TicketDao {
     private Map<Long, Ticket> tickets = new HashMap<>();
 
     public void saveAll(Set<Ticket> tickets) {
-        this.tickets.putAll(tickets.stream().filter(t -> t.getUser().isRegistered()).collect(Collectors.toMap(t -> t.getId(), t -> t)));
+        this.tickets.putAll(tickets.stream()
+                .filter(t -> t.getUser().isRegistered())
+                .collect(Collectors.toMap(DomainObject::getId, t -> t)));
     }
 
     public Set<Ticket> getTicketsForDateAndEvent(@Nonnull Event event, @Nonnull LocalDateTime dateTime) {
