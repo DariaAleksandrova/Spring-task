@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Objects;
+
 import static junit.framework.TestCase.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,7 +20,7 @@ public class AuditoriumServiceTest {
 
     @Test
     public void getByName(){
-        assertEquals("platinum",auditoriumService.getByName("platinum").getName());
+        assertEquals("platinum", Objects.requireNonNull(auditoriumService.getByName("platinum")).getName());
     }
 
     @Test

@@ -3,7 +3,7 @@ package com.epam.spring.core.domain;
 
 public class DomainObject {
 
-    private Long id;
+    private static Long id;
 
     public Long getId() {
         return id;

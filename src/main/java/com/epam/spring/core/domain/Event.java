@@ -2,11 +2,7 @@ package com.epam.spring.core.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.NavigableMap;
-import java.util.NavigableSet;
-import java.util.Objects;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 
 public class Event extends DomainObject {
@@ -16,14 +12,14 @@ public class Event extends DomainObject {
     private double basePrice;
     private EventRating rating;
     private NavigableMap<LocalDateTime, Auditorium> auditoriums = new TreeMap<>();
+    private static int Id;
 
-     public boolean assignAuditorium(LocalDateTime dateTime, Auditorium auditorium) {
+    public boolean assignAuditorium(LocalDateTime dateTime, Auditorium auditorium) {
         if (airDates.contains(dateTime)) {
             auditoriums.put(dateTime, auditorium);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public boolean removeAuditoriumAssignment(LocalDateTime dateTime) {
@@ -127,7 +123,8 @@ public class Event extends DomainObject {
         com.epam.spring.core.domain.Event other = (com.epam.spring.core.domain.Event) obj;
         if (name == null) {
             return other.name == null;
-        } else return name.equals(other.name);
+        }
+        return name.equals(other.name);
     }
 
 }
