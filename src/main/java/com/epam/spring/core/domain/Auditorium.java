@@ -81,7 +81,7 @@ public class Auditorium {
         Auditorium other = (Auditorium) obj;
         if (name == null) {
             return other.name == null;
-        } else return name.equals(other.name);
+        }  return name.equals(other.name);
     }
 
 

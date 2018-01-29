@@ -100,7 +100,7 @@ public class User extends DomainObject {
         }
         if (lastName == null) {
             return other.lastName == null;
-        } else return lastName.equals(other.lastName);
+        } return lastName.equals(other.lastName);
     }
 
 }

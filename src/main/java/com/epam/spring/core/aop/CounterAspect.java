@@ -3,17 +3,18 @@ package com.epam.spring.core.aop;
 
 import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.domain.Ticket;
-
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 @Aspect
+@Component
 public class CounterAspect {
     private Map<String, Long> accessByNameCounter = new HashMap<String, Long>();
     private Map<String, Long> requestEventPriceCounter = new HashMap<String, Long>();
@@ -23,7 +24,6 @@ public class CounterAspect {
     public Map<String, Long> getAccessByNameCounter() {
         return accessByNameCounter;
     }
-
     public void setAccessByNameCounter(Map<String, Long> accessByNameCounter) {
         this.accessByNameCounter = accessByNameCounter;
     }
@@ -31,7 +31,6 @@ public class CounterAspect {
     public Map<String, Long> getRequestEventPriceCounter() {
         return requestEventPriceCounter;
     }
-
     public void setRequestEventPriceCounter(Map<String, Long> requestEventPriceCounter) {
         this.requestEventPriceCounter = requestEventPriceCounter;
     }
@@ -39,7 +38,6 @@ public class CounterAspect {
     public Map<String, Long> bookTicketEventCounter() {
         return bookTicketEventCounter;
     }
-
     public void bookTicketEventCounter(Map<String, Long> bookTicketEventCounter) {
         this.bookTicketEventCounter = bookTicketEventCounter;
     }
@@ -64,7 +62,7 @@ public class CounterAspect {
     private void getEventPrice() {
     }
 
-    @Before("getEventPrice()")
+    @Before("getEventPrice")
     public void countGetEventPrice(Event event) {
         if ( requestEventPriceCounter.containsKey(event.getName())) {
             long counter =  requestEventPriceCounter.get(event.getName());
